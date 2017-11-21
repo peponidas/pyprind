@@ -94,6 +94,9 @@ class Prog():
                 supported = ('PYCHARM_HOSTED' in os.environ or
                              os.isatty(sys.stdout.fileno()))
 
+                if type(self.stream) == int:
+                    supported = True
+
             # a fix for IPython notebook "IOStream has no fileno."
             except(UnsupportedOperation):
                 supported = True
